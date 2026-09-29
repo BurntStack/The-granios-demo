@@ -1622,3 +1622,22 @@ body { background: var(--dominant-mist); color: var(--dominant-ink); }
   .hero-support { max-width: 380px; font-size: .98rem; }
   .hero-reassurance { margin-top: 16px; }
 }
+
+/* Keep the conversion action visible: no oversized heading wrap or hover-only state. */
+@media (min-width: 801px) {
+  .granios-product-hero { min-height: 680px; }
+  .product-hero-content { min-height: 680px; padding-top: 78px; padding-bottom: 34px; }
+  .product-hero-copy { max-width: 650px; }
+  .granios-product-hero h1 { max-width: 650px; font-size: clamp(3.9rem, 5.65vw, 6.25rem); line-height: .94; }
+  .hero-products { height: min(540px, 62vh); min-height: 430px; }
+}
+.granios-product-hero h1,
+.granios-product-hero h1:hover,
+.granios-product-hero h1 em,
+.granios-product-hero h1 em:hover {
+  color: #fffdf9;
+  letter-spacing: -.075em;
+  transform: none;
+}
+.granios-product-hero h1 em { color: var(--brand-oat); }
+.hero-support { transition: none; }

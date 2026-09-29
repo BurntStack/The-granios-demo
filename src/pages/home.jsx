@@ -16,7 +16,7 @@ export default function Home() {
       <div className="container granios-hero-content product-hero-content">
         <div className="product-hero-copy">
           <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .08 }} className="hero-badge">THE GRANIOS PIZZA CAFÉ · WARANGAL</motion.p>
-          <motion.h1 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .18 }}>Pizza nights<br/><em>start here.</em></motion.h1>
+          <motion.h1 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .18 }}>Pizza, shakes,<br/><em>good times.</em></motion.h1>
           <motion.h2 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .26 }} className="hero-support">Loaded pizzas, chilled shakes and easy café moments.</motion.h2>
           <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .32 }} className="hero-lede">Come in for a quick bite, stay for the catch-up, or order your favourites straight to your door.</motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .4 }} className="hero-buttons"><a className="btn-primary" href="https://www.swiggy.com/city/warangal/the-granios-pizza-restaurant-warangal-rest1398124" target="_blank" rel="noreferrer">Order online <ArrowUpRight size={16}/></a><a href="#menu" className="btn-outline">Explore menu</a></motion.div>
