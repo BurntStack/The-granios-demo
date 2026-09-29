@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -17,6 +17,23 @@
   --marble-line: rgba(11, 11, 11, 0.12);
   --container: 1120px;
   --gutter: 32px;
+}
+
+/* Quiet café palette: ink, cream, oat and espresso. */
+:root {
+  --white: #fffdf9;
+  --off-white: #f5f0e8;
+  --grey-50: #eee5d9;
+  --grey-100: #dfd1c0;
+  --grey-200: #cbb9a3;
+  --grey-400: #8b7967;
+  --grey-600: #574b40;
+  --grey-800: #28231e;
+  --grey-900: #11100f;
+  --brand-olive: #bba58d;
+  --brand-olive-dark: #6b5542;
+  --accent-copper: #8d6f56;
+  --marble-line: rgba(17, 16, 15, .14);
 }
 
 /* The Granios logo palette: ink black, pizza orange, pepper red and white. */
@@ -56,16 +73,16 @@ html {
 body {
   background: var(--off-white);
   color: var(--grey-800);
-  font-family: "Inter", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
 }
 
 a {
@@ -1501,3 +1518,107 @@ body { background: var(--off-white); }
 .contact-page { background: linear-gradient(90deg, rgba(8,7,6,.82), rgba(45,19,8,.58)), url("/contact.webp") center / cover no-repeat; }
 .footer { border-top-color: rgba(255,130,0,.35); }
 .footer a:hover { color: var(--brand-olive); }
+
+/* Refined neutral café theme — the brand feels warm rather than loud. */
+.logo, .logo-name, .footer-logo { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -.055em; }
+.desktop-nav, .nav-button, .eyebrow, .hero-badge, .quick-grid span, .category,
+.text-link, .product-label, .hero-stamp { font-family: "Manrope", sans-serif; }
+.navbar { background: rgba(17,16,15,.96); border-bottom-color: rgba(255,253,249,.14); }
+.nav-button { background: #eee5d9; color: #11100f; }
+.nav-button:hover { background: #fffdf9; }
+.desktop-nav a::after { background: #eee5d9; }
+
+.granios-product-hero { background: #11100f; }
+.granios-product-hero::before { background: radial-gradient(circle at 73% 44%, #dfd1c0 0 10%, transparent 10.35%), radial-gradient(circle at 73% 44%, transparent 0 25%, rgba(238,229,217,.25) 25.15% 25.45%, transparent 25.7%), linear-gradient(122deg, #11100f 0 52%, #302922 52% 100%); }
+.granios-product-hero::after { border-color: rgba(238,229,217,.28); box-shadow: 0 0 0 34px rgba(238,229,217,.06), 0 0 0 68px rgba(238,229,217,.035); }
+.granios-product-hero .hero-badge, .order-band .eyebrow { color: #dfd1c0; }
+.granios-product-hero h1 { font-family: "Manrope", sans-serif; font-weight: 800; color: #fffdf9; letter-spacing: -.075em; }
+.granios-product-hero h1 em { color: #dfd1c0; font-style: normal; }
+.granios-product-hero .hero-lede { color: rgba(255,253,249,.69); }
+.granios-product-hero .btn-primary { background: #eee5d9; color: #11100f; }
+.granios-product-hero .btn-primary::before { background: #fffdf9; }
+.granios-product-hero .btn-outline { border-color: rgba(255,253,249,.6); }
+.granios-product-hero .btn-outline:hover { background: #eee5d9; color: #11100f; }
+.hero-product { border-color: #fffdf9; box-shadow: 0 24px 44px rgba(0,0,0,.3); }
+.product-label { background: #11100f; color: #fffdf9; }
+.hero-scribble { color: #dfd1c0; text-shadow: 3px 3px 0 #11100f; }
+
+.quick-strip, .footer { background: #11100f; }
+.quick-strip { border-color: rgba(238,229,217,.18); }
+.quick-grid svg, .footer h3 { color: #dfd1c0; }
+.granios-intro, .menu-page { background: #f5f0e8; }
+.intro-image { box-shadow: 18px 18px 0 #dfd1c0; }
+.granios-picks { background: #fffdf9; }
+.signature-card-image { border-color: rgba(107,85,66,.18); box-shadow: 0 12px 26px rgba(29,23,18,.09); }
+.eyebrow, .text-link, .signature-card .price, .menu-row-price, .menu-row-tag { color: #6b5542; }
+.text-link:hover { color: #11100f; }
+.category { background: rgba(255,253,249,.76); border-color: #cbb9a3; }
+.category.active { background: #11100f; border-color: #11100f; }
+.category:hover { border-color: #6b5542; color: #11100f; }
+.menu-row:hover { border-color: #8d6f56; }
+.order-band { background-color: #11100f; }
+.order-band::before { background: rgba(17,16,15,.74); }
+.reservations-page { background: linear-gradient(90deg, rgba(17,16,15,.9), rgba(54,45,37,.7)), url("/reservations-banner.png") center / cover fixed; }
+.reservation-intro .eyebrow, .reservation-intro h1 em { color: #dfd1c0; }
+.reservation-submit { background: #11100f; color: #fffdf9; }
+.reservation-submit:hover { background: #6b5542; color: #fffdf9; }
+.contact-page { background: linear-gradient(90deg, rgba(17,16,15,.84), rgba(54,45,37,.63)), url("/contact.webp") center / cover no-repeat; }
+.footer { border-top-color: rgba(238,229,217,.2); }
+.footer a:hover { color: #dfd1c0; }
+
+/* 60 / 30 / 10 conversion palette
+   60% ink, cream and soft grey foundations · 30% warm café beige surfaces · 10% espresso accents. */
+:root {
+  --dominant-ink: #11100f;
+  --dominant-cream: #fffdf9;
+  --dominant-mist: #f4f2ee;
+  --brand-oat: #e6dccd;
+  --brand-sand: #cdbda9;
+  --accent-espresso: #5c4634;
+}
+body { background: var(--dominant-mist); color: var(--dominant-ink); }
+.granios-intro, .menu-page { background: var(--dominant-mist); }
+.granios-picks { background: var(--dominant-cream); }
+.quick-strip, .footer, .granios-product-hero, .order-band { background-color: var(--dominant-ink); }
+
+/* The 30% brand layer is reserved for intentional framing, not every element. */
+.granios-product-hero::before { background: radial-gradient(circle at 73% 44%, var(--brand-oat) 0 10%, transparent 10.35%), radial-gradient(circle at 73% 44%, transparent 0 25%, rgba(230,220,205,.25) 25.15% 25.45%, transparent 25.7%), linear-gradient(122deg, var(--dominant-ink) 0 58%, #2b2722 58% 100%); }
+.intro-image { box-shadow: 18px 18px 0 var(--brand-oat); }
+.category { background: var(--dominant-cream); border-color: var(--brand-sand); }
+.reservation-card { background: var(--dominant-cream); }
+
+/* 10% accent: actionable elements and small orientation markers only. */
+.nav-button, .granios-product-hero .btn-primary { background: var(--brand-oat); color: var(--dominant-ink); }
+.eyebrow, .text-link, .menu-row-price, .menu-row-tag, .signature-card .price { color: var(--accent-espresso); }
+.quick-grid svg, .footer h3, .granios-product-hero .hero-badge, .reservation-intro .eyebrow { color: var(--brand-oat); }
+.category:hover, .menu-row:hover { border-color: var(--accent-espresso); }
+
+/* Above-the-fold scanning hierarchy: identity → primary promise → supporting reason → action. */
+.product-hero-copy { max-width: 580px; }
+.hero-support {
+  max-width: 450px;
+  margin: 0 0 13px;
+  color: #eee8df;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.42;
+}
+.granios-product-hero .hero-lede { margin-bottom: 25px; font-size: 1rem; line-height: 1.68; }
+.hero-reassurance { display: flex; gap: 9px; margin-top: 19px; color: rgba(255,253,249,.62); font-size: .74rem; font-weight: 600; letter-spacing: .055em; text-transform: uppercase; }
+.hero-reassurance span { color: var(--brand-oat); }
+.hero-buttons a { min-height: 48px; justify-content: center; }
+
+/* Scanable sections use a clear H2 and a lower-contrast explanation. */
+.intro-copy h2, .picks-heading h2, .page-header h1, .reservation-card-heading h2, .contact-item h3 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 750;
+  letter-spacing: -.05em;
+}
+.intro-copy p, .page-header p, .menu-row-desc, .signature-card p { color: var(--grey-600); }
+
+@media (max-width: 800px) {
+  .hero-support { max-width: 380px; font-size: .98rem; }
+  .hero-reassurance { margin-top: 16px; }
+}
