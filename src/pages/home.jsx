@@ -16,10 +16,10 @@ export default function Home() {
       <div className="container granios-hero-content product-hero-content">
         <div className="product-hero-copy">
           <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .08 }} className="hero-badge">THE GRANIOS PIZZA CAFÉ · WARANGAL</motion.p>
-          <motion.h1 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .18 }}>Pizza, shakes,<br/><em>good times.</em></motion.h1>
+          <motion.h1 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .18 }}>Big bites.<br/><em>Better plans.</em></motion.h1>
           <motion.h2 initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .26 }} className="hero-support">Loaded pizzas, chilled shakes and easy café moments.</motion.h2>
-          <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .32 }} className="hero-lede">Come in for a quick bite, stay for the catch-up, or order your favourites straight to your door.</motion.p>
-          <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .4 }} className="hero-buttons"><a className="btn-primary" href="https://www.swiggy.com/city/warangal/the-granios-pizza-restaurant-warangal-rest1398124" target="_blank" rel="noreferrer">Order online <ArrowUpRight size={16}/></a><a href="#menu" className="btn-outline">Explore menu</a></motion.div>
+          <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .32 }} className="hero-lede">Take a quick break, settle in with friends, or bring your next craving home with you.</motion.p>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .4 }} className="hero-buttons"><a className="btn-primary" href="https://www.swiggy.com/city/warangal/the-granios-pizza-restaurant-warangal-rest1398124" target="_blank" rel="noreferrer">Order your favourites <ArrowUpRight size={16}/></a><a href="#menu" className="btn-outline">Browse the menu</a></motion.div>
           <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ ...ease, delay: .46 }} className="hero-reassurance">Dine in <span>•</span> Takeaway <span>•</span> Delivery</motion.p>
         </div>
         <motion.div className="hero-products" initial={{ opacity: 0, scale: .86, rotate: -4 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: .95, delay: .22, ease: [0.22, 1, 0.36, 1] }}>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -73,14 +73,14 @@ html {
 body {
   background: var(--off-white);
   color: var(--grey-800);
-  font-family: "DM Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  font-family: "Manrope", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   letter-spacing: -0.045em;
 }
@@ -1641,3 +1641,14 @@ body { background: var(--dominant-mist); color: var(--dominant-ink); }
 }
 .granios-product-hero h1 em { color: var(--brand-oat); }
 .hero-support { transition: none; }
+
+/* One contemporary sans-serif voice across every visible interface element. */
+body, button, input, textarea, select,
+h1, h2, h3, h4, h5, h6,
+.logo, .logo-name, .footer-logo, .desktop-nav, .mobile-nav,
+.nav-button, .eyebrow, .hero-badge, .hero-support, .hero-reassurance,
+.quick-grid span, .category, .text-link, .product-label, .hero-stamp {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+h1, h2, h3 { font-weight: 700; }
+.granios-product-hero h1 { font-weight: 800; letter-spacing: -.07em; }
