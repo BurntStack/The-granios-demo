@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ScrollReveal from "./scroll-reveal";
 
 export default function Footer() {
@@ -15,10 +14,10 @@ export default function Footer() {
 
         <div>
           <h3>Explore</h3>
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/reservations">Reservations</Link>
-          <Link to="/contact">Contact</Link>
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#reservations">Reservations</a>
+          <a href="#contact">Contact</a>
         </div>
 
         <div>

@@ -19,6 +19,23 @@
   --gutter: 32px;
 }
 
+/* The Granios logo palette: ink black, pizza orange, pepper red and white. */
+:root {
+  --white: #fffdf9;
+  --off-white: #fff7ea;
+  --grey-50: #fff0d8;
+  --grey-100: #f1d6af;
+  --grey-200: #dfb982;
+  --grey-400: #8b6a48;
+  --grey-600: #573b27;
+  --grey-800: #24150e;
+  --grey-900: #080706;
+  --brand-olive: #ff8200;
+  --brand-olive-dark: #e84b17;
+  --accent-copper: #ffaf18;
+  --marble-line: rgba(232, 75, 23, .18);
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
@@ -1175,6 +1192,72 @@ select:focus-visible {
   }
 }
 
+/* Single-page motion polish */
+main > div { scroll-margin-top: 78px; }
+#home { scroll-margin-top: 0; }
+
+.navbar { transition: background .35s ease, box-shadow .35s ease; }
+.desktop-nav a, .mobile-nav a { letter-spacing: .035em; }
+.nav-button, .btn-primary, .btn-outline, .dark-button, .view-more-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s ease, background .28s ease, color .28s ease;
+}
+.nav-button::before, .btn-primary::before, .dark-button::before, .view-more-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: #fff;
+  transform: translateX(-103%);
+  transition: transform .42s cubic-bezier(.22, 1, .36, 1);
+}
+.nav-button:hover::before, .btn-primary:hover::before, .dark-button:hover::before, .view-more-button:hover::before { transform: translateX(0); }
+.nav-button:hover, .btn-primary:hover, .dark-button:hover, .view-more-button:hover { color: #111; transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,.2); }
+.btn-outline:hover { background: #fff; color: #111; transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,.17); }
+
+.granios-hero { position: relative; overflow: hidden; }
+.granios-hero::after { content: ""; position: absolute; width: 42vw; height: 42vw; min-width: 340px; min-height: 340px; right: -11vw; bottom: -20vw; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 84px rgba(255,255,255,.025); pointer-events: none; animation: cafe-orbit 13s ease-in-out infinite alternate; }
+.granios-hero-content { position: relative; z-index: 1; }
+@keyframes cafe-orbit { from { transform: translate3d(0,0,0) rotate(-7deg); } to { transform: translate3d(-3vw,-2vw,0) rotate(7deg); } }
+
+.quick-grid span { transition: color .25s ease, transform .25s cubic-bezier(.22,1,.36,1); }
+.quick-grid span:hover { color: var(--accent-copper); transform: translateY(-3px); }
+.intro-image { position: relative; }
+.intro-image::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.55); border-radius: inherit; transform: scale(.94); opacity: 0; transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .35s ease; pointer-events: none; }
+.intro-image:hover img { transform: scale(1.06); }
+.intro-image:hover::after { transform: scale(.91); opacity: 1; }
+.intro-image img { transition: transform .7s cubic-bezier(.22,1,.36,1); }
+.signature-card { transition: transform .4s cubic-bezier(.22,1,.36,1); }
+.signature-card:hover { transform: translateY(-9px); }
+.signature-card:hover h3 { color: var(--brand-olive-dark); }
+.signature-card h3 { transition: color .25s ease; }
+.text-link { position: relative; transition: gap .25s ease, color .25s ease; }
+.text-link:hover { gap: 13px; }
+.text-link::after { content: ""; position: absolute; left: 0; bottom: -5px; width: calc(100% - 24px); height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+.text-link:hover::after { transform: scaleX(1); }
+
+.menu-page { background: radial-gradient(circle at 90% 8%, rgba(245,124,0,.11), transparent 23rem), #fbfaf7; }
+.category { transition: transform .25s cubic-bezier(.22,1,.36,1), background .25s ease, color .25s ease, border-color .25s ease; }
+.category:hover { transform: translateY(-3px); }
+.menu-row { border-bottom-color: rgba(34,32,29,.12); }
+.menu-row-thumb { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.menu-row:hover .menu-row-thumb { transform: rotate(-3deg) scale(1.08); box-shadow: 0 8px 18px rgba(0,0,0,.15); }
+
+.reservations-page { scroll-margin-top: 0; }
+.reservation-card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.reservation-card:hover { transform: translateY(-5px); box-shadow: 0 30px 75px rgba(0,0,0,.34); }
+.contact-item { transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.contact-item:hover { transform: translateX(8px); }
+.contact-item svg { transition: transform .3s cubic-bezier(.22,1,.36,1), color .3s ease; }
+.contact-item:hover svg { color: var(--accent-copper); transform: rotate(-8deg) scale(1.14); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-backdrop {
     animation: none;
@@ -1272,3 +1355,149 @@ select:focus-visible {
   .reservation-card-heading h2 { font-size: 1.9rem; }
   .granios-hero h1 { font-size: 3.2rem; }
 }
+
+/* Softer, shorter booking moment */
+.reservations-page {
+  min-height: auto;
+  padding-block: clamp(76px, 8vw, 108px) 34px;
+}
+.reservation-layout {
+  align-items: start;
+  gap: clamp(32px, 6vw, 76px);
+}
+.reservation-intro h1 { font-size: clamp(3rem, 5vw, 4.65rem); margin: 14px 0 16px; }
+.reservation-intro > p { font-size: .98rem; line-height: 1.65; }
+.reservation-promise { margin-top: 24px; }
+.reservation-card { padding: clamp(22px, 3vw, 32px); }
+.reservation-card-heading { margin-bottom: 17px; }
+.reservation-card-heading h2 { font-size: 2rem; }
+.reservation-form input, .reservation-form textarea, .reservation-form select { padding: 10px 13px; }
+.reservation-fields { gap: 11px; }
+.reservation-form textarea { min-height: 68px; }
+.reservation-submit { margin-top: 14px; padding-block: 13px; }
+.reservation-footer { margin-top: 18px; }
+
+/* Text feels responsive without making the page busy. */
+.granios-hero h1, .intro-copy h2, .picks-heading h2, .order-band h2,
+.page-header h1, .reservation-intro h1, .reservation-card-heading h2,
+.contact-item h3, .signature-card h3 {
+  transition: color .3s ease, letter-spacing .3s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+.intro-copy h2:hover, .picks-heading h2:hover, .page-header h1:hover,
+.reservation-intro h1:hover, .reservation-card-heading h2:hover {
+  color: var(--brand-olive-dark);
+  letter-spacing: .012em;
+  transform: translateX(4px);
+}
+.granios-hero h1:hover, .order-band h2:hover { letter-spacing: .012em; transform: translateY(-3px); }
+.hero-lede, .intro-copy p, .section-header p, .page-header p, .reservation-intro > p {
+  transition: color .28s ease, transform .28s cubic-bezier(.22, 1, .36, 1);
+}
+.hero-lede:hover, .intro-copy p:hover, .page-header p:hover, .reservation-intro > p:hover { transform: translateX(3px); }
+.contact-item p a, .reservation-promise a, .footer a { text-underline-offset: 4px; transition: color .25s ease, text-decoration-color .25s ease; }
+.contact-item p a:hover, .reservation-promise a:hover { color: var(--accent-copper); text-decoration-color: currentColor; }
+
+@media (max-width: 800px) {
+  .reservations-page { padding-block: 86px 28px; }
+  .reservation-layout { gap: 28px; }
+  .reservation-footer { margin-top: 14px; }
+}
+
+/* Product-led Granios hero: original layout and local menu photography. */
+.granios-product-hero {
+  min-height: min(790px, 100vh);
+  background: #f7c94e;
+  color: #1a120e;
+  isolation: isolate;
+}
+.granios-product-hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(circle at 73% 44%, #ffedaa 0 11%, transparent 11.4%), radial-gradient(circle at 73% 44%, transparent 0 24%, rgba(34,24,18,.12) 24.2% 24.5%, transparent 24.7%), linear-gradient(115deg, #f7c94e 0 54%, #f5a928 54% 100%); }
+.granios-product-hero::after { width: 35vw; height: 35vw; right: -8vw; bottom: -13vw; border-color: rgba(34,24,18,.2); box-shadow: 0 0 0 34px rgba(255,255,255,.09), 0 0 0 68px rgba(255,255,255,.06); }
+.product-hero-content { min-height: min(790px, 100vh); display: grid; grid-template-columns: minmax(300px, .84fr) minmax(390px, 1.16fr); align-items: center; gap: 18px; padding-top: 86px; padding-bottom: 52px; }
+.product-hero-copy { position: relative; z-index: 2; }
+.granios-product-hero .hero-badge { color: #3d271b; font-weight: 700; }
+.granios-product-hero h1 { max-width: 680px; color: #21130d; font-size: clamp(4rem, 7.2vw, 7.4rem); text-wrap: balance; }
+.granios-product-hero h1 em { color: #c83218; }
+.granios-product-hero .hero-lede { color: #4d3022; max-width: 405px; }
+.granios-product-hero .btn-primary { background: #21130d; color: #fff; }
+.granios-product-hero .btn-primary::before { background: #c83218; }
+.granios-product-hero .btn-primary:hover { color: #fff; }
+.granios-product-hero .btn-outline { color: #21130d; border-color: #21130d; }
+.granios-product-hero .btn-outline:hover { background: #21130d; color: #fff; }
+.hero-products { position: relative; z-index: 1; height: min(620px, 70vh); min-height: 485px; }
+.hero-product { position: absolute; overflow: hidden; border: 7px solid #fff7df; box-shadow: 0 24px 44px rgba(63,34,14,.23); background: #fff; }
+.hero-product img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.22,1,.36,1), filter .4s ease; }
+.hero-product:hover img { transform: scale(1.11); filter: saturate(1.12); }
+.hero-product:hover { z-index: 5; }
+.hero-pizza { width: min(33vw, 430px); aspect-ratio: 1; top: 4%; left: 6%; border-radius: 50%; }
+.hero-shake { width: min(22vw, 278px); aspect-ratio: .73; right: 7%; bottom: 3%; border-radius: 150px 150px 24px 24px; }
+.product-label { position: absolute; z-index: 1; top: 20px; left: 20px; padding: 8px 10px; border-radius: 3px; background: #21130d; color: #fff8e7; font-size: .63rem; font-weight: 800; line-height: 1.15; letter-spacing: .1em; }
+.hero-scribble { position: absolute; right: 31%; top: 13%; z-index: 4; color: #c83218; font-size: clamp(3rem, 6vw, 5.5rem); text-shadow: 3px 3px 0 #fff4cd; }
+.hero-stamp { position: absolute; z-index: 3; color: rgba(33,19,13,.67); font-size: .62rem; font-weight: 800; letter-spacing: .14em; }
+.hero-stamp-left { left: 3.6vw; bottom: 30px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.hero-stamp-right { right: 3.6vw; top: 110px; writing-mode: vertical-rl; }
+
+@media (max-width: 800px) {
+  .granios-product-hero, .product-hero-content { min-height: auto; }
+  .product-hero-content { grid-template-columns: 1fr; gap: 10px; padding-top: 126px; padding-bottom: 44px; }
+  .granios-product-hero h1 { font-size: clamp(3.8rem, 15vw, 6rem); }
+  .hero-products { height: 380px; min-height: 0; max-width: 570px; width: 100%; margin: -10px auto 0; }
+  .hero-pizza { width: min(59vw, 340px); left: 9%; }
+  .hero-shake { width: min(34vw, 205px); right: 7%; }
+  .hero-stamp-right { right: 16px; top: 92px; }
+  .hero-stamp-left { left: 16px; bottom: 20px; }
+}
+@media (max-width: 480px) {
+  .product-hero-content { padding-top: 112px; }
+  .hero-products { height: 300px; }
+  .hero-pizza { width: 62vw; }
+  .hero-shake { width: 35vw; }
+  .hero-scribble { right: 28%; top: 8%; }
+  .hero-stamp { display: none; }
+}
+
+/* Unified Granios black / orange / white treatment. */
+body { background: var(--off-white); }
+.navbar { background: rgba(8,7,6,.96); box-shadow: 0 4px 20px rgba(0,0,0,.12); }
+.logo .logo-mark { background: transparent; }
+.nav-button { background: var(--brand-olive); color: #080706; }
+.nav-button:hover { background: #fffdf9; }
+.quick-strip, .footer { background: #080706; }
+.quick-strip { border-color: rgba(255,130,0,.45); }
+.quick-grid svg, .footer h3 { color: var(--brand-olive); }
+
+.granios-product-hero { background: #080706; }
+.granios-product-hero::before { background: radial-gradient(circle at 73% 44%, #ffb51e 0 10%, transparent 10.4%), radial-gradient(circle at 73% 44%, transparent 0 25%, rgba(255,130,0,.42) 25.15% 25.45%, transparent 25.7%), linear-gradient(122deg, #080706 0 51%, #291108 51% 100%); }
+.granios-product-hero::after { border-color: rgba(255,130,0,.36); box-shadow: 0 0 0 34px rgba(255,130,0,.08), 0 0 0 68px rgba(255,255,255,.035); }
+.granios-product-hero .hero-badge { color: #ffb51e; }
+.granios-product-hero h1 { color: #fffdf9; }
+.granios-product-hero h1 em { color: var(--brand-olive); }
+.granios-product-hero .hero-lede { color: rgba(255,253,249,.74); }
+.granios-product-hero .btn-primary { background: var(--brand-olive); color: #080706; }
+.granios-product-hero .btn-primary::before { background: #fffdf9; }
+.granios-product-hero .btn-primary:hover { color: #080706; }
+.granios-product-hero .btn-outline { color: #fffdf9; border-color: rgba(255,253,249,.7); }
+.granios-product-hero .btn-outline:hover { background: #fffdf9; color: #080706; }
+.product-label { background: var(--brand-olive-dark); color: #fffdf9; }
+.hero-scribble { color: var(--brand-olive); text-shadow: 3px 3px 0 #fffdf9; }
+.hero-stamp { color: rgba(255,253,249,.63); }
+
+.granios-intro { background: var(--off-white); }
+.intro-image { box-shadow: 20px 20px 0 var(--brand-olive); }
+.granios-picks { background: #fffdf9; }
+.signature-card-image { border: 1px solid rgba(255,130,0,.25); }
+.signature-card .price, .menu-row-price, .menu-row-tag { color: var(--brand-olive-dark); }
+.order-band { background-color: #080706; }
+.order-band::before { background: rgba(8,7,6,.68); }
+.order-band .eyebrow { color: var(--brand-olive); }
+.menu-page { background: radial-gradient(circle at 92% 7%, rgba(255,130,0,.18), transparent 25rem), #fff7ea; }
+.category.active { background: #080706; border-color: #080706; }
+.category:hover { border-color: var(--brand-olive); color: var(--brand-olive-dark); }
+.menu-row:hover { border-color: var(--brand-olive); }
+.reservations-page { background: linear-gradient(90deg, rgba(8,7,6,.89), rgba(48,18,7,.68)), url("/reservations-banner.png") center / cover fixed; }
+.reservation-intro .eyebrow { color: var(--brand-olive); }
+.reservation-intro h1 em { color: var(--brand-olive); }
+.reservation-submit { background: var(--brand-olive); color: #080706; }
+.reservation-submit:hover { background: #080706; color: #fffdf9; }
+.contact-page { background: linear-gradient(90deg, rgba(8,7,6,.82), rgba(45,19,8,.58)), url("/contact.webp") center / cover no-repeat; }
+.footer { border-top-color: rgba(255,130,0,.35); }
+.footer a:hover { color: var(--brand-olive); }

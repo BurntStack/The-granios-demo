@@ -14,16 +14,14 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  animateOnLoad = false,
   duration,
 }) {
   return (
     <motion.div
       className={className}
       initial="hidden"
-      {...(animateOnLoad
-        ? { animate: "visible" }
-        : { whileInView: "visible", viewport: { once: true, amount: 0.15 } })}
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.18 }}
       variants={reveal}
       transition={{ ...transition, ...(duration ? { duration } : {}), delay }}
     >

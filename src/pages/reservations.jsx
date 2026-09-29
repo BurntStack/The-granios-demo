@@ -36,7 +36,7 @@ export default function Reservations() {
 	return (
 		<section className="page reservations-page">
 			<div className="reservation-layout">
-				<ScrollReveal className="reservation-intro" animateOnLoad>
+				<ScrollReveal className="reservation-intro">
 					<span className="eyebrow">THE GRANIOS CAFE | WARANGAL</span>
 					<h1>Save a seat<br /><em>for good times.</em></h1>
 					<p>Make room for one more. Share your details and we’ll help arrange a table for your next Granios visit.</p>
@@ -46,7 +46,7 @@ export default function Reservations() {
 					</div>
 				</ScrollReveal>
 
-				<ScrollReveal className="reservation-card" delay={0.12} animateOnLoad>
+				<ScrollReveal className="reservation-card" delay={0.12}>
 					<div className="reservation-card-heading">
 						<span className="eyebrow">YOUR TABLE</span>
 						<h2>Make a reservation</h2>

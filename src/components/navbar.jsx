@@ -1,41 +1,51 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+
+const links = [
+  ["Home", "home"],
+  ["Menu", "menu"],
+  ["Reservations", "reservations"],
+  ["Contact", "contact"],
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const links = [
-    ["Home", "/"],
-    ["Menu", "/menu"],
-    ["Reservations", "/reservations"],
-    ["Contact", "/contact"],
-  ];
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const sections = links.map(([, id]) => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting);
+      if (visible.length) setActive(visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0].target.id);
+    }, { rootMargin: "-32% 0px -56% 0px", threshold: [0.05, 0.25, 0.55] });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="navbar">
       <div className="container nav-container">
-        <Link to="/" className="logo" aria-label="The Granios Pizza home">
+        <a href="#home" className="logo" aria-label="The Granios Pizza home">
           <img className="logo-mark" src="/logo.png" alt="The Granios Pizza" />
           <span className="logo-name">The Granios</span>
-        </Link>
+        </a>
 
         <nav className="desktop-nav">
-          {links.map(([name, path]) => (
-            <NavLink
+          {links.map(([name, id]) => (
+            <a
               key={name}
-              to={path}
-              end={path === "/"}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              href={`#${id}`}
+              className={active === id ? "active" : ""}
             >
               {name}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
         <div className="nav-right">
-          <Link className="nav-button" to="/reservations">
+          <a className="nav-button" href="#reservations">
             Book a table
-          </Link>
+          </a>
           <button
             className="mobile-menu-button"
             onClick={() => setOpen((value) => !value)}
@@ -48,20 +58,19 @@ export default function Navbar() {
 
       {open && (
         <div className="mobile-nav container">
-          {links.map(([name, path]) => (
-            <NavLink
+          {links.map(([name, id]) => (
+            <a
               key={name}
-              to={path}
-              end={path === "/"}
+              href={`#${id}`}
               onClick={() => setOpen(false)}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={active === id ? "active" : ""}
             >
               {name}
-            </NavLink>
+            </a>
           ))}
-          <Link to="/reservations" onClick={() => setOpen(false)}>
+          <a href="#reservations" onClick={() => setOpen(false)}>
             Book a table
-          </Link>
+          </a>
         </div>
       )}
     </header>
